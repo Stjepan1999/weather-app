@@ -7,6 +7,10 @@ html, body {
     box-sizing: border-box;
 }
 
+h1, h3 {
+    margin: 0;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -31,7 +35,51 @@ html, body {
     opacity: 0.3;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 15px;
+    display: grid;
+    grid: 100px 1fr 100px / 300px 1fr;
+    grid-template-areas: 
+    'weather-header weather-header'
+    'weather-icon weather-details'
+    'weather-temperature weather-details';
 }
+.weather-header {
+    grid-area: weather-header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+}
+.today-icon {
+    grid-area: weather-icon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+}
+.today-temperature {
+    grid-area: weather-temperature;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    font-size: 28px;
+    border: 2px solid red;
+}
+.weather-details {
+    grid-area: weather-details;
+    border: 2px solid red;
+    display: grid;
+    grid: repeat(3, 1fr) / repeat(2, 1fr);
+    align-items: center;
+}
+.detail-item {
+    text-align: center;
+    border: 2px solid red;
+}
+
+
 
 .week-weather-container {
     display: flex;
