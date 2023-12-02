@@ -1,9 +1,13 @@
+:root {
+    --text-color: #0f475b;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     background: rgb(24,79,119);
-    background: linear-gradient(0deg, rgba(24,79,119,1) 0%, rgba(23,139,173,1) 100%);
+    background: linear-gradient(0deg, rgb(71, 146, 204) 0%, rgb(171, 215, 226) 100%);
     box-sizing: border-box;
 }
 
@@ -31,8 +35,8 @@ h1, h3 {
 .today-weather-container {
     width: 700px;
     height: 400px;
-    background-color: white;
-    opacity: 0.3;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 15px;
     display: grid;
@@ -48,7 +52,6 @@ h1, h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid red;
 }
 .today-icon {
     grid-area: weather-icon;
@@ -56,7 +59,10 @@ h1, h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid red;
+}
+.today-icon-img {
+    width: 200px;
+    height: 200px;
 }
 .today-temperature {
     grid-area: weather-temperature;
@@ -65,19 +71,18 @@ h1, h3 {
     align-items: center;
     justify-content: start;
     font-size: 28px;
-    border: 2px solid red;
 }
 .weather-details {
     grid-area: weather-details;
-    border: 2px solid red;
     display: grid;
+    font-size: 20px;
     grid: repeat(3, 1fr) / repeat(2, 1fr);
     align-items: center;
 }
 .detail-item {
     text-align: center;
-    border: 2px solid red;
 }
+
 
 
 

@@ -9,7 +9,7 @@ function showTodaysWeather(weatherData) {
     todayConditionsDiv.textContent = weatherData.currentConditions.conditions;
 
     const todayIconDiv = document.querySelector('.today-icon-img');
-    todayIconDiv.textContent = weatherData.currentConditions.icon;
+    todayIconDiv.src = `../dist/images/${weatherData.currentConditions.icon}.png`
 
     const todayWindDiv = document.querySelector('.wind-info');
     todayWindDiv.textContent = weatherData.currentConditions.windspeed;
@@ -20,15 +20,14 @@ function showTodaysWeather(weatherData) {
     const todayMinTempDiv = document.querySelector('.mintemp-info');
     todayMinTempDiv.textContent = weatherData.days[0].tempmin;
 
-    const todayMaxTempDiv = document.querySelector('maxtemp-info');
+    const todayMaxTempDiv = document.querySelector('.maxtemp-info');
     todayMaxTempDiv.textContent = weatherData.days[0].tempmax;
 
     const todaySunriseDiv = document.querySelector('.sunrise-info');
     todaySunriseDiv.textContent = weatherData.currentConditions.sunrise
 
-    const todaySunsetDiv = document.querySelector('sunset-info');
+    const todaySunsetDiv = document.querySelector('.sunset-info');
     todaySunsetDiv.textContent = weatherData.currentConditions.sunset
-
 }
 
 
