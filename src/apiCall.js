@@ -1,5 +1,5 @@
 import { format, addDays} from 'date-fns'
-import { showTodaysWeather } from './domFunctions';
+import { showTodaysWeather, showWeekForecast } from './domFunctions';
 
 function searchCity() {
     const searchCityButton = document.querySelector('.search-city-button');
@@ -9,7 +9,6 @@ function searchCity() {
             getWeather(cityName)
         }
     })
-
     getWeather('New York')
 }
 
@@ -26,6 +25,7 @@ async function getWeather(cityName) {
         }
         const weatherData = await response.json();
         showTodaysWeather(weatherData)
+        showWeekForecast(weatherData)
     } catch (error){
         console.log('Error fetching weather data: ', error.message)
     }

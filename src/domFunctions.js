@@ -1,3 +1,5 @@
+import { addDays, format } from "date-fns";
+
 function showTodaysWeather(weatherData) {
     const cityNameDiv = document.querySelector('.city-name');
     cityNameDiv.textContent = weatherData.resolvedAddress;
@@ -31,4 +33,36 @@ function showTodaysWeather(weatherData) {
 }
 
 
-export { showTodaysWeather }
+function showWeekForecast(weatherData) {
+    for (let i = 1 ;i <= 5; i++ ) {
+        const weekDay = document.getElementById(`day${i}`);
+        weekDay.innerHTML = ''
+
+        // Get day name with date-fns
+        const dayName = format(addDays(new Date(), i), 'EEEE')
+        const weekDayName = document.createElement('div');
+        weekDayName.classList.add('week-day-name')
+        weekDayName.textContent = dayName
+        weekDay.appendChild(weekDayName)
+
+        const dayIcon = document.createElement('img');
+        dayIcon.classList.add('week-day-icon')
+        dayIcon.src = `../dist/images/${weatherData.days[i].icon}.png`;
+        weekDay.appendChild(dayIcon)
+
+        const dayCondition = document.createElement('div');
+        dayCondition.classList.add('week-day-condition')
+        dayCondition.textContent = weatherData.days[i].conditions
+        weekDay.appendChild(dayCondition)
+
+        // Get min and max temp, and remove decimals
+        const minTemp = Math.trunc(weatherData.days[i].tempmin);
+        const maxTemp = Math.trunc(weatherData.days[i].tempmax);
+        const minMaxTemp = document.createElement('div');
+        minMaxTemp.classList.add('week-day-temp')
+        minMaxTemp.textContent = `${minTemp}°C / ${maxTemp}°C`
+        weekDay.appendChild(minMaxTemp)
+    }
+}
+
+export { showTodaysWeather, showWeekForecast }

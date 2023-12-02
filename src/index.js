@@ -1,5 +1,4 @@
 import { searchCity } from "./apiCall";
-import { showTodaysWeather } from './domFunctions'
+import { showWeekForecast } from './domFunctions'
 
 searchCity()
-showTodaysWeather()

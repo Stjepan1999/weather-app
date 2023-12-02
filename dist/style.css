@@ -85,7 +85,6 @@ h1, h3 {
 
 
 
-
 .week-weather-container {
     display: flex;
     align-items: center;
@@ -96,8 +95,19 @@ h1, h3 {
 .week-day {
     width: 125px;
     height: 125px;
-    background-color: white;
-    opacity: 0.3;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.week-day-name {
+    font-size: 20px;
+}
+.week-day-icon {
+    width: 50px;
+    height: 50px;
 }
