@@ -9,7 +9,7 @@ function searchCity() {
         }
     })
 
-    getWeather('zagreb')
+    getWeather('New York')
 }
 
 async function getWeather(cityName) {
