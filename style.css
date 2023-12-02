@@ -1,0 +1,50 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: rgb(24,79,119);
+    background: linear-gradient(0deg, rgba(24,79,119,1) 0%, rgba(23,139,173,1) 100%);
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 100px;
+}
+
+.city-input {
+    border: none;
+    border-radius: 15px;
+    height: 25px;
+    width: 220px;
+    font-size: 18px;
+    padding: 5px;
+}
+.today-weather-container {
+    width: 700px;
+    height: 400px;
+    background-color: white;
+    opacity: 0.3;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+}
+
+.week-weather-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.week-day {
+    width: 125px;
+    height: 125px;
+    background-color: white;
+    opacity: 0.3;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+}
