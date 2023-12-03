@@ -5,7 +5,7 @@ function showTodaysWeather(weatherData) {
     cityNameDiv.textContent = weatherData.resolvedAddress;
 
     const todayTemperatureDiv = document.querySelector('.temperature');
-    todayTemperatureDiv.textContent = weatherData.currentConditions.temp;
+    todayTemperatureDiv.textContent = weatherData.currentConditions.temp + '°C';
 
     const todayConditionsDiv = document.querySelector('.weather-description');
     todayConditionsDiv.textContent = weatherData.currentConditions.conditions;
@@ -20,10 +20,10 @@ function showTodaysWeather(weatherData) {
     todayVisibilityDiv.textContent = weatherData.currentConditions.visibility;
 
     const todayMinTempDiv = document.querySelector('.mintemp-info');
-    todayMinTempDiv.textContent = weatherData.days[0].tempmin;
+    todayMinTempDiv.textContent = weatherData.days[0].tempmin + '°C';
 
     const todayMaxTempDiv = document.querySelector('.maxtemp-info');
-    todayMaxTempDiv.textContent = weatherData.days[0].tempmax;
+    todayMaxTempDiv.textContent = weatherData.days[0].tempmax + '°C';
 
     const todaySunriseDiv = document.querySelector('.sunrise-info');
     todaySunriseDiv.textContent = weatherData.currentConditions.sunrise
@@ -50,10 +50,10 @@ function showWeekForecast(weatherData) {
         dayIcon.src = `../dist/images/${weatherData.days[i].icon}.png`;
         weekDay.appendChild(dayIcon)
 
-        const dayCondition = document.createElement('div');
-        dayCondition.classList.add('week-day-condition')
-        dayCondition.textContent = weatherData.days[i].conditions
-        weekDay.appendChild(dayCondition)
+        //const dayCondition = document.createElement('div');
+        //dayCondition.classList.add('week-day-condition')
+        //dayCondition.textContent = weatherData.days[i].conditions
+        //weekDay.appendChild(dayCondition)
 
         // Get min and max temp, and remove decimals
         const minTemp = Math.trunc(weatherData.days[i].tempmin);
