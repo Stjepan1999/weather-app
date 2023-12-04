@@ -1,3 +1,3 @@
 import { searchCity } from './domFunctions';
 
-searchCity()
+searchCity();
