@@ -1,16 +1,6 @@
 import { format, addDays} from 'date-fns'
 import { showTodaysWeather, showWeekForecast } from './domFunctions';
 
-function searchCity() {
-    const searchCityButton = document.querySelector('.search-city-button');
-    searchCityButton.addEventListener('click', () => {
-        const cityName = document.querySelector('.city-input').value;
-        if (cityName) {
-            getWeather(cityName)
-        }
-    })
-    getWeather('New York')
-}
 
 async function getWeather(cityName) {
     const todayDate = format(new Date(), 'yyyy-MM-dd');
@@ -26,6 +16,8 @@ async function getWeather(cityName) {
         const weatherData = await response.json();
         showTodaysWeather(weatherData)
         showWeekForecast(weatherData)
+        console.log(weatherData)
+
     } catch (error){
         console.log('Error fetching weather data: ', error.message)
     }
@@ -33,4 +25,4 @@ async function getWeather(cityName) {
 }
 
 
-export { searchCity }
+export default getWeather

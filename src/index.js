@@ -1,4 +1,3 @@
-import { searchCity } from "./apiCall";
-import { showWeekForecast } from './domFunctions'
+import { searchCity } from './domFunctions';
 
 searchCity()

@@ -9,10 +9,11 @@
 <body>
     <div class="main-container">
 
-        <div>
-            <input class="city-input" id="city-name-input" placeholder="Enter city" required>
-            <button class="search-city-button">Search</button>
-        </div>
+        <form>
+            <input type="text" class="city-input" id="city-name-input" placeholder="Enter city" required>
+            <button type="submit" class="search-city-button">Search</button>
+        </form>
+            
 
         <div class="today-weather-container">
             <div class="weather-header">
@@ -31,28 +32,46 @@
 
             <div class="weather-details">
                 <div class="detail-item">
-                    <div>Wind</div>
-                    <div class="wind-info"></div>
+                    <img src="./images/icons/wind_icon.svg" class="detail-icon">
+                    <div>
+                        <div>Wind</div>
+                        <div class="wind-info"></div>
+                    </div>
                 </div>
                 <div class="detail-item">
-                    <div>Visibility</div>
-                    <div class="visibility-info"></div>
+                    <img src="./images/icons/visibility_icon.svg" class="detail-icon">
+                    <div>
+                        <div>Visibility</div>
+                        <div class="visibility-info"></div>
+                    </div>
                 </div>
                 <div class="detail-item">
-                    <div>Min Temp</div>
-                    <div class="mintemp-info"></div>
+                    <img src="./images/icons/min_temp_icon.svg" class="detail-icon">
+                    <div>
+                        <div>Min Temp</div>
+                        <div class="mintemp-info"></div>
+                    </div>
                 </div>
                 <div class="detail-item">
-                    <div>Max Temp</div>
-                    <div class="maxtemp-info"></div>
+                    <img src="./images/icons/max_temp_icon.svg" class="detail-icon">
+                    <div>
+                        <div>Max Temp</div>
+                        <div class="maxtemp-info"></div>
+                    </div>
                 </div>
                 <div class="detail-item">
-                    <div>Sunrise</div>
-                    <div class="sunrise-info"></div>
+                    <img src="./images/icons/sunrise_icon.svg" class="detail-icon">
+                    <div>
+                        <div>Sunrise</div>
+                        <div class="sunrise-info"></div>
+                    </div>
                 </div>
                 <div class="detail-item">
-                    <div>Sunset</div>
-                    <div class="sunset-info"></div>
+                    <img src="./images/icons/sunset_icon.svg" class="detail-icon">
+                    <div>
+                        <div>Sunset</div>
+                        <div class="sunset-info"></div>
+                    </div>
                 </div>
             </div>
         </div>

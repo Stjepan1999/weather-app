@@ -1,11 +1,25 @@
 import { addDays, format } from "date-fns";
+import getWeather from './apiCall'
+
+function searchCity() {
+    const searchCityButton = document.querySelector('.search-city-button');
+    searchCityButton.addEventListener('click', (event) => {
+        const cityName = document.querySelector('.city-input').value;
+        if (cityName) {
+            getWeather(cityName)
+        }
+        event.preventDefault()
+    })
+    getWeather('New York')
+}
+
 
 function showTodaysWeather(weatherData) {
     const cityNameDiv = document.querySelector('.city-name');
     cityNameDiv.textContent = weatherData.resolvedAddress;
 
     const todayTemperatureDiv = document.querySelector('.temperature');
-    todayTemperatureDiv.textContent = weatherData.currentConditions.temp + '°C';
+    todayTemperatureDiv.textContent = `${Math.trunc(weatherData.currentConditions.temp)}°C`;
 
     const todayConditionsDiv = document.querySelector('.weather-description');
     todayConditionsDiv.textContent = weatherData.currentConditions.conditions;
@@ -14,16 +28,16 @@ function showTodaysWeather(weatherData) {
     todayIconDiv.src = `../dist/images/${weatherData.currentConditions.icon}.png`
 
     const todayWindDiv = document.querySelector('.wind-info');
-    todayWindDiv.textContent = weatherData.currentConditions.windspeed;
+    todayWindDiv.textContent = `${weatherData.currentConditions.windspeed} km/h`;
 
     const todayVisibilityDiv = document.querySelector('.visibility-info');
-    todayVisibilityDiv.textContent = weatherData.currentConditions.visibility;
+    todayVisibilityDiv.textContent = `${Math.trunc(weatherData.currentConditions.visibility)} km`;
 
     const todayMinTempDiv = document.querySelector('.mintemp-info');
-    todayMinTempDiv.textContent = weatherData.days[0].tempmin + '°C';
+    todayMinTempDiv.textContent = `${Math.trunc(weatherData.days[0].tempmin)}°C`;
 
     const todayMaxTempDiv = document.querySelector('.maxtemp-info');
-    todayMaxTempDiv.textContent = weatherData.days[0].tempmax + '°C';
+    todayMaxTempDiv.textContent = `${Math.trunc(weatherData.days[0].tempmax)}°C`;
 
     const todaySunriseDiv = document.querySelector('.sunrise-info');
     todaySunriseDiv.textContent = weatherData.currentConditions.sunrise
@@ -50,11 +64,6 @@ function showWeekForecast(weatherData) {
         dayIcon.src = `../dist/images/${weatherData.days[i].icon}.png`;
         weekDay.appendChild(dayIcon)
 
-        //const dayCondition = document.createElement('div');
-        //dayCondition.classList.add('week-day-condition')
-        //dayCondition.textContent = weatherData.days[i].conditions
-        //weekDay.appendChild(dayCondition)
-
         // Get min and max temp, and remove decimals
         const minTemp = Math.trunc(weatherData.days[i].tempmin);
         const maxTemp = Math.trunc(weatherData.days[i].tempmax);
@@ -65,4 +74,4 @@ function showWeekForecast(weatherData) {
     }
 }
 
-export { showTodaysWeather, showWeekForecast }
+export { showTodaysWeather, showWeekForecast, searchCity }
