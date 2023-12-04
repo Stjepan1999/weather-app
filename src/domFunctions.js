@@ -18,6 +18,9 @@ function showTodaysWeather(weatherData) {
     const cityNameDiv = document.querySelector('.city-name');
     cityNameDiv.textContent = weatherData.resolvedAddress;
 
+    const todayDate = document.querySelector('.today-date');
+    todayDate.textContent = `Today, ${format(new Date(), 'HH:mm')}`
+
     const todayTemperatureDiv = document.querySelector('.temperature');
     todayTemperatureDiv.textContent = `${Math.trunc(weatherData.currentConditions.temp)}°C`;
 
@@ -74,4 +77,14 @@ function showWeekForecast(weatherData) {
     }
 }
 
-export { showTodaysWeather, showWeekForecast, searchCity }
+function showError() {
+    const errorMessage = document.querySelector('.error-message');
+    errorMessage.style.display = 'block'
+}
+
+function hideError() {
+    const errorMessage = document.querySelector('.error-message');
+    errorMessage.style.display = 'none'
+}
+
+export { showTodaysWeather, showWeekForecast, searchCity, showError, hideError }

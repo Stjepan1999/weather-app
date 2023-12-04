@@ -1,5 +1,5 @@
 import { format, addDays} from 'date-fns'
-import { showTodaysWeather, showWeekForecast } from './domFunctions';
+import { showTodaysWeather, showWeekForecast, showError, hideError } from './domFunctions';
 
 
 async function getWeather(cityName) {
@@ -11,15 +11,17 @@ async function getWeather(cityName) {
     try {
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) {
-            console.log('Failed to fetch weather data: ', response.status)
+            console.error('Failed to fetch weather data: ', response.status)
         }
         const weatherData = await response.json();
+        hideError()
         showTodaysWeather(weatherData)
         showWeekForecast(weatherData)
         console.log(weatherData)
 
     } catch (error){
-        console.log('Error fetching weather data: ', error.message)
+        console.error('Error fetching weather data: ', error.message)
+        showError()
     }
 
 }
