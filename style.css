@@ -23,7 +23,9 @@ h1, h3 {
     gap: 30px;
     padding: 100px;
 }
-
+form { 
+    position: relative;
+}
 .city-input {
     border: none;
     border-radius: 15px;
@@ -32,6 +34,22 @@ h1, h3 {
     font-size: 18px;
     padding: 5px;
 }
+
+.search-city-button {
+    background: none;
+    border: none;
+}
+.search-city-button:hover {
+    cursor: pointer;
+}
+.search-city-button > img{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+}
+
 .today-weather-container {
     width: 700px;
     height: 400px;
@@ -82,12 +100,12 @@ h1, h3 {
 .detail-item {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 5px;
 }
 .detail-icon {
     width: 30px;
     height: 30px;
+    margin-left: 40px;
 }
 
 
