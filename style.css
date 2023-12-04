@@ -1,143 +1,147 @@
 :root {
-    --text-color: #0f475b;
+  --text-color: #0f475b;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: rgb(24,79,119);
-    background: linear-gradient(0deg, rgb(71, 146, 204) 0%, rgb(171, 215, 226) 100%);
-    box-sizing: border-box;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: rgb(24, 79, 119);
+  background: linear-gradient(
+    0deg,
+    rgb(71, 146, 204) 0%,
+    rgb(171, 215, 226) 100%
+  );
+  box-sizing: border-box;
 }
 
-h1, h3 {
-    margin: 0;
+h1,
+h3 {
+  margin: 0;
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 100px;
 }
-form { 
-    position: relative;
+form {
+  position: relative;
 }
 .city-input {
-    border: none;
-    border-radius: 15px;
-    height: 25px;
-    width: 220px;
-    font-size: 18px;
-    padding: 5px;
+  border: none;
+  border-radius: 15px;
+  height: 25px;
+  width: 220px;
+  font-size: 18px;
+  padding: 5px;
 }
 
 .search-city-button {
-    background: none;
-    border: none;
+  background: none;
+  border: none;
 }
 .search-city-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-.search-city-button > img{
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    bottom: 5px;
-    right: 20px;
+.search-city-button > img {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
 }
 .error-message {
-    color: red;
-    font-size: 20px;
-    display: none;
+  color: red;
+  font-size: 20px;
+  display: none;
 }
 
 .today-weather-container {
-    width: 700px;
-    height: 400px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--text-color);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 15px;
-    display: grid;
-    grid: 100px 1fr 100px / 300px 1fr;
-    grid-template-areas: 
+  width: 700px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  display: grid;
+  grid: 100px 1fr 100px / 300px 1fr;
+  grid-template-areas:
     'weather-header weather-header'
     'weather-icon weather-details'
     'weather-temperature weather-details';
 }
 .weather-header {
-    grid-area: weather-header;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  grid-area: weather-header;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .today-icon {
-    grid-area: weather-icon;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  grid-area: weather-icon;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .today-icon-img {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
 .today-temperature {
-    grid-area: weather-temperature;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    font-size: 28px;
+  grid-area: weather-temperature;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  font-size: 28px;
 }
 .weather-details {
-    grid-area: weather-details;
-    display: grid;
-    font-size: 20px;
-    grid: repeat(3, 1fr) / repeat(2, 1fr);
-    align-items: center;
+  grid-area: weather-details;
+  display: grid;
+  font-size: 20px;
+  grid: repeat(3, 1fr) / repeat(2, 1fr);
+  align-items: center;
 }
 .detail-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .detail-icon {
-    width: 30px;
-    height: 30px;
-    margin-left: 40px;
+  width: 30px;
+  height: 30px;
+  margin-left: 40px;
 }
 
-
-
 .week-weather-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .week-day {
-    width: 125px;
-    height: 125px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--text-color);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 125px;
+  height: 125px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .week-day-name {
-    font-size: 20px;
+  font-size: 20px;
 }
 .week-day-icon {
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
 }

@@ -1,92 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Weather App</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-container">
+      <form>
+        <input
+          type="text"
+          class="city-input"
+          id="city-name-input"
+          placeholder="Enter city"
+          required
+        />
+        <button type="submit" class="search-city-button">
+          <img src="./images/icons/search_icon.svg" />
+        </button>
+      </form>
 
-        <form>
-            <input type="text" class="city-input" id="city-name-input" placeholder="Enter city" required>
-            <button type="submit" class="search-city-button"><img src="./images/icons/search_icon.svg"></button>
-        </form>
+      <div class="error-message">
+        City not found. Please enter a valid city.
+      </div>
 
-        <div class="error-message">City not found. Please enter a valid city.</div>
-
-
-        <div class="today-weather-container">
-            <div class="weather-header">
-                <h1 class="city-name"></h1>
-                <h3 class="today-date">Today</h3>
-            </div>
-
-            <div class="today-icon">
-                <img class="today-icon-img">
-            </div>
-
-            <div class="today-temperature">
-                <div class="weather-description"></div>
-                <div class="temperature"></div>
-            </div>
-
-            <div class="weather-details">
-                <div class="detail-item">
-                    <img src="./images/icons/wind_icon.svg" class="detail-icon">
-                    <div>
-                        <div>Wind</div>
-                        <div class="wind-info"></div>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <img src="./images/icons/visibility_icon.svg" class="detail-icon">
-                    <div>
-                        <div>Visibility</div>
-                        <div class="visibility-info"></div>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <img src="./images/icons/min_temp_icon.svg" class="detail-icon">
-                    <div>
-                        <div>Min Temp</div>
-                        <div class="mintemp-info"></div>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <img src="./images/icons/max_temp_icon.svg" class="detail-icon">
-                    <div>
-                        <div>Max Temp</div>
-                        <div class="maxtemp-info"></div>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <img src="./images/icons/sunrise_icon.svg" class="detail-icon">
-                    <div>
-                        <div>Sunrise</div>
-                        <div class="sunrise-info"></div>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <img src="./images/icons/sunset_icon.svg" class="detail-icon">
-                    <div>
-                        <div>Sunset</div>
-                        <div class="sunset-info"></div>
-                    </div>
-                </div>
-            </div>
+      <div class="today-weather-container">
+        <div class="weather-header">
+          <h1 class="city-name"></h1>
+          <h3 class="today-date">Today</h3>
         </div>
-        <div class="week-weather-container">
-            <div class="week-day" id="day1"></div>
-            <div class="week-day" id="day2"></div>
-            <div class="week-day" id="day3"></div>
-            <div class="week-day" id="day4"></div>
-            <div class="week-day" id="day5"></div>
+
+        <div class="today-icon">
+          <img class="today-icon-img" />
         </div>
+
+        <div class="today-temperature">
+          <div class="weather-description"></div>
+          <div class="temperature"></div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-item">
+            <img src="./images/icons/wind_icon.svg" class="detail-icon" />
+            <div>
+              <div>Wind</div>
+              <div class="wind-info"></div>
+            </div>
+          </div>
+          <div class="detail-item">
+            <img src="./images/icons/visibility_icon.svg" class="detail-icon" />
+            <div>
+              <div>Visibility</div>
+              <div class="visibility-info"></div>
+            </div>
+          </div>
+          <div class="detail-item">
+            <img src="./images/icons/min_temp_icon.svg" class="detail-icon" />
+            <div>
+              <div>Min Temp</div>
+              <div class="mintemp-info"></div>
+            </div>
+          </div>
+          <div class="detail-item">
+            <img src="./images/icons/max_temp_icon.svg" class="detail-icon" />
+            <div>
+              <div>Max Temp</div>
+              <div class="maxtemp-info"></div>
+            </div>
+          </div>
+          <div class="detail-item">
+            <img src="./images/icons/sunrise_icon.svg" class="detail-icon" />
+            <div>
+              <div>Sunrise</div>
+              <div class="sunrise-info"></div>
+            </div>
+          </div>
+          <div class="detail-item">
+            <img src="./images/icons/sunset_icon.svg" class="detail-icon" />
+            <div>
+              <div>Sunset</div>
+              <div class="sunset-info"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="week-weather-container">
+        <div class="week-day" id="day1"></div>
+        <div class="week-day" id="day2"></div>
+        <div class="week-day" id="day3"></div>
+        <div class="week-day" id="day4"></div>
+        <div class="week-day" id="day5"></div>
+      </div>
     </div>
 
-    
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>
