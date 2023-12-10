@@ -1,4 +1,4 @@
-import { addDays, format } from 'date-fns';
+import { addDays, format, parse } from 'date-fns';
 import getWeather from './apiCall';
 
 function searchCity() {
@@ -29,15 +29,13 @@ function showTodaysWeather(weatherData) {
   todayConditionsDiv.textContent = weatherData.currentConditions.conditions;
 
   const todayIconDiv = document.querySelector('.today-icon-img');
-  todayIconDiv.src = `../dist/images/${weatherData.currentConditions.icon}.png`;
+  todayIconDiv.src = `./images/${weatherData.currentConditions.icon}.png`;
 
   const todayWindDiv = document.querySelector('.wind-info');
   todayWindDiv.textContent = `${weatherData.currentConditions.windspeed} km/h`;
 
   const todayVisibilityDiv = document.querySelector('.visibility-info');
-  todayVisibilityDiv.textContent = `${Math.trunc(
-    weatherData.currentConditions.visibility,
-  )} km`;
+  todayVisibilityDiv.textContent = `${Math.trunc(weatherData.currentConditions.visibility)} km`;
 
   const todayMinTempDiv = document.querySelector('.mintemp-info');
   todayMinTempDiv.textContent = `${Math.trunc(weatherData.days[0].tempmin)}°C`;
@@ -45,11 +43,17 @@ function showTodaysWeather(weatherData) {
   const todayMaxTempDiv = document.querySelector('.maxtemp-info');
   todayMaxTempDiv.textContent = `${Math.trunc(weatherData.days[0].tempmax)}°C`;
 
+  // Format sunrise time to be in HH:mm format
+  const formatTime = (apiTime) => {
+    const parsedTime = parse(apiTime, 'HH:mm:ss', new Date());
+    return format(parsedTime, 'HH:mm')
+  }
+
   const todaySunriseDiv = document.querySelector('.sunrise-info');
-  todaySunriseDiv.textContent = weatherData.currentConditions.sunrise;
+  todaySunriseDiv.textContent = formatTime(weatherData.currentConditions.sunrise)
 
   const todaySunsetDiv = document.querySelector('.sunset-info');
-  todaySunsetDiv.textContent = weatherData.currentConditions.sunset;
+  todaySunsetDiv.textContent = formatTime(weatherData.currentConditions.sunset);
 }
 
 function showWeekForecast(weatherData) {
@@ -66,7 +70,7 @@ function showWeekForecast(weatherData) {
 
     const dayIcon = document.createElement('img');
     dayIcon.classList.add('week-day-icon');
-    dayIcon.src = `../dist/images/${weatherData.days[i].icon}.png`;
+    dayIcon.src = `./images/${weatherData.days[i].icon}.png`;
     weekDay.appendChild(dayIcon);
 
     // Get min and max temp, and remove decimals
