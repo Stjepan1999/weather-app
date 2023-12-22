@@ -1,5 +1,5 @@
 import { format, addDays } from 'date-fns';
-import { showTodaysWeather, showWeekForecast, showError, hideError, } from './domFunctions';
+import { showTodaysWeather, showWeekForecast, showError, hideError, } from './weather';
 
 async function getWeather(cityName) {
   const todayDate = format(new Date(), 'yyyy-MM-dd');
@@ -23,4 +23,4 @@ async function getWeather(cityName) {
   }
 }
 
-export default getWeather;
+export { getWeather };
