@@ -8,11 +8,7 @@ body {
   padding: 0;
   height: 100%;
   background: rgb(24, 79, 119);
-  background: linear-gradient(
-    0deg,
-    rgb(71, 146, 204) 0%,
-    rgb(171, 215, 226) 100%
-  );
+  background: linear-gradient(0deg, rgb(71, 146, 204) 0%, rgb(171, 215, 226) 100%);
   box-sizing: border-box;
 }
 
@@ -27,7 +23,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 30px;
-  padding: 100px;
+  padding: 20px;
 }
 form {
   position: relative;
@@ -62,8 +58,7 @@ form {
 }
 
 .today-weather-container {
-  width: 700px;
-  height: 400px;
+  padding: 30px;
   background-color: rgba(255, 255, 255, 0.2);
   color: var(--text-color);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -81,12 +76,10 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .today-icon {
   grid-area: weather-icon;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 .today-icon-img {
@@ -144,4 +137,32 @@ form {
 .week-day-icon {
   width: 70px;
   height: 70px;
+}
+
+@media (max-width: 600px) {
+  body {
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .today-weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .detail-item {
+    margin-top: 30px;
+  }
+  .detail-icon {
+    margin: 0;
+  }
+  .week-weather-container {
+    max-width: 400px;
+    overflow-x: auto;
+    padding: 20px;
+  }
+  .week-day {
+    flex: 0 0 auto;
+  }
 }
