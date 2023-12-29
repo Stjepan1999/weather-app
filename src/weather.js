@@ -17,13 +17,11 @@ export function showTodaysWeather(weatherData) {
   const cityNameElement = document.querySelector('.city-name');
   cityNameElement.textContent = weatherData.resolvedAddress;
 
-  const todayDate = document.querySelector('.today-date');
-  todayDate.textContent = `Today, ${format(new Date(), 'HH:mm')}`;
+  const todayElement = document.querySelector('.today-date');
+  todayElement.textContent = `Today, ${format(new Date(), 'HH:mm')}`;
 
   const todayTemperatureElement = document.querySelector('.temperature');
-  todayTemperatureElement.textContent = `${Math.trunc(
-    weatherData.currentConditions.temp,
-  )}°C`;
+  todayTemperatureElement.textContent = `${Math.trunc(weatherData.currentConditions.temp)}°C`;
 
   const todayConditionsElement = document.querySelector('.weather-description');
   todayConditionsElement.textContent = weatherData.currentConditions.conditions;
@@ -44,7 +42,7 @@ export function showTodaysWeather(weatherData) {
   todayMaxTempElement.textContent = `${Math.trunc(weatherData.days[0].tempmax)}°C`;
 
   const todaySunriseElement = document.querySelector('.sunrise-info');
-  todaySunriseElement.textContent = formatTime(weatherData.currentConditions.sunrise)
+  todaySunriseElement.textContent = formatTime(weatherData.currentConditions.sunrise);
 
   const todaySunsetElement = document.querySelector('.sunset-info');
   todaySunsetElement.textContent = formatTime(weatherData.currentConditions.sunset);
@@ -52,7 +50,7 @@ export function showTodaysWeather(weatherData) {
 
 function formatTime(apiTime) {
   const parsedTime = parse(apiTime, 'HH:mm:ss', new Date());
-  return format(parsedTime, 'HH:mm')
+  return format(parsedTime, 'HH:mm');
 }
 
 export function showWeekForecast(weatherData) {
@@ -91,4 +89,3 @@ export function hideError() {
   const errorMessage = document.querySelector('.error-message');
   errorMessage.style.display = 'none';
 }
-
