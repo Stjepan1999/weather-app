@@ -21,7 +21,6 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 30px;
   padding: 20px;
 }
@@ -35,6 +34,7 @@ form {
   width: 220px;
   font-size: 18px;
   padding: 5px;
+  padding-left: 10px;
 }
 
 .search-city-button {
@@ -80,6 +80,8 @@ form {
 }
 .today-icon {
   grid-area: weather-icon;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 .today-icon-img {
@@ -114,8 +116,6 @@ form {
 
 .week-weather-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 20px;
 }
 
@@ -145,22 +145,30 @@ form {
     background-repeat: no-repeat;
     background-size: contain;
   }
+  .main-container {
+    align-items: initial;
+  }
+  form {
+    align-self: center;
+  }
   .today-weather-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0 20px;
   }
   .detail-item {
     margin-top: 30px;
   }
   .detail-icon {
-    margin: 0;
+    margin-left: 10px;
   }
   .week-weather-container {
-    max-width: 400px;
+    margin: 0 20px;
     overflow-x: auto;
-    padding: 20px;
+    white-space: nowrap;
+    padding: 20px 0;
   }
   .week-day {
     flex: 0 0 auto;
