@@ -40,16 +40,16 @@ form {
 .search-city-button {
   background: none;
   border: none;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
 .search-city-button:hover {
   cursor: pointer;
 }
 .search-city-button > img {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  bottom: 5px;
-  right: 20px;
+  width: 27px;
+  height: 27px;
 }
 .error-message {
   color: red;
