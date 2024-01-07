@@ -58,7 +58,7 @@ form {
 }
 
 .today-weather-container {
-  padding: 30px;
+  padding: 40px;
   background-color: rgba(255, 255, 255, 0.2);
   color: var(--text-color);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -118,7 +118,6 @@ form {
   display: flex;
   gap: 20px;
 }
-
 .week-day {
   width: 125px;
   height: 125px;
@@ -165,10 +164,10 @@ form {
     margin-left: 10px;
   }
   .week-weather-container {
-    margin: 0 20px;
+    margin: 0 5px;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 20px 0;
+    padding: 20px 15px;
   }
   .week-day {
     flex: 0 0 auto;

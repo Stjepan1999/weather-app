@@ -1,4 +1,3 @@
-import { addDays, format, parse } from 'date-fns';
 import { getWeather } from './api';
 
 export function searchCity() {
@@ -18,7 +17,7 @@ export function showTodaysWeather(weatherData) {
   cityNameElement.textContent = weatherData.resolvedAddress;
 
   const todayElement = document.querySelector('.today-date');
-  todayElement.textContent = `Today, ${format(new Date(), 'HH:mm')}`;
+  todayElement.textContent = `Today, ${new Date().getHours()}:${new Date().getMinutes()}`;
 
   const todayTemperatureElement = document.querySelector('.temperature');
   todayTemperatureElement.textContent = `${Math.trunc(weatherData.currentConditions.temp)}°C`;
@@ -42,15 +41,10 @@ export function showTodaysWeather(weatherData) {
   todayMaxTempElement.textContent = `${Math.trunc(weatherData.days[0].tempmax)}°C`;
 
   const todaySunriseElement = document.querySelector('.sunrise-info');
-  todaySunriseElement.textContent = formatTime(weatherData.currentConditions.sunrise);
+  todaySunriseElement.textContent = removeSecondsFromTime(weatherData.currentConditions.sunrise);
 
   const todaySunsetElement = document.querySelector('.sunset-info');
-  todaySunsetElement.textContent = formatTime(weatherData.currentConditions.sunset);
-}
-
-function formatTime(apiTime) {
-  const parsedTime = parse(apiTime, 'HH:mm:ss', new Date());
-  return format(parsedTime, 'HH:mm');
+  todaySunsetElement.textContent = removeSecondsFromTime(weatherData.currentConditions.sunset);
 }
 
 export function showWeekForecast(weatherData) {
@@ -58,8 +52,7 @@ export function showWeekForecast(weatherData) {
     const weekDay = document.getElementById(`day${i}`);
     weekDay.innerHTML = '';
 
-    // Get day name with date-fns
-    const dayName = format(addDays(new Date(), i), 'EEEE');
+    const dayName = getWeekdayName(i);
     const weekDayName = document.createElement('div');
     weekDayName.classList.add('week-day-name');
     weekDayName.textContent = dayName;
@@ -70,7 +63,6 @@ export function showWeekForecast(weatherData) {
     dayIcon.src = `./images/${weatherData.days[i].icon}.png`;
     weekDay.appendChild(dayIcon);
 
-    // Get min and max temp, and remove decimals
     const minTemp = Math.trunc(weatherData.days[i].tempmin);
     const maxTemp = Math.trunc(weatherData.days[i].tempmax);
     const minMaxTemp = document.createElement('div');
@@ -88,4 +80,22 @@ export function showError() {
 export function hideError() {
   const errorMessage = document.querySelector('.error-message');
   errorMessage.style.display = 'none';
+}
+
+export function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function getWeekdayName(n) {
+  let targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + n);
+  return targetDate.toLocaleString('en-US', { weekday: 'long' });
+}
+
+function removeSecondsFromTime(time) {
+  const [hours, minutes] = time.split(':');
+  return `${hours}:${minutes}`;
 }

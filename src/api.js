@@ -1,11 +1,12 @@
-import { format, addDays } from 'date-fns';
-import { showTodaysWeather, showWeekForecast, showError, hideError } from './weather';
+import { showTodaysWeather, showWeekForecast, showError, hideError, formatDate } from './weather';
 
-async function getWeather(cityName) {
-  const todayDate = format(new Date(), 'yyyy-MM-dd');
-  const fifthDayDate = format(addDays(new Date(), 5), 'yyyy-MM-dd');
+export async function getWeather(cityName) {
+  const todayDate = formatDate(new Date());
+  const fifthDayDate = new Date();
+  fifthDayDate.setDate(fifthDayDate.getDate() + 5);
+  const formattedFifthDayDate = formatDate(fifthDayDate);
   const apiKey = 'R7BYG2ZJK7JJDLMPD3NCB6D7T';
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}/${todayDate}/${fifthDayDate}?unitGroup=metric&include=days%2Ccurrent&key=${apiKey}&contentType=json`;
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}/${todayDate}/${formattedFifthDayDate}?unitGroup=metric&include=days%2Ccurrent&key=${apiKey}&contentType=json`;
 
   try {
     const response = await fetch(url, { mode: 'cors' });
@@ -16,11 +17,8 @@ async function getWeather(cityName) {
     hideError();
     showTodaysWeather(weatherData);
     showWeekForecast(weatherData);
-    console.log(weatherData);
   } catch (error) {
     console.error('Error fetching weather data: ', error.message);
     showError();
   }
 }
-
-export { getWeather };
